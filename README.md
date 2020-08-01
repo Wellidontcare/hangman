@@ -8,6 +8,7 @@ Requires:
 * Console that clears with the "\033c" control char
 
 If you see weird chars at the top your console is not compatible.
+Make sure the file path for the word and stages file are correct.
 
 
 ## German review of the game
