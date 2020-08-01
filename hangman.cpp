@@ -6,7 +6,7 @@
 /*  By: Wellidontcare <djjorisdj@gmail.com>                    */
 /*                                                             */
 /*  created: 08/01/20 10:37:47 by Wellidontcare                */
-/*  updated: 08/01/20 10:50:59 by Joris Nonnast                */
+/*  updated: 08/01/20 11:14:16 by Joris Nonnast                */
 /*                                                             */
 /*                                                             */
 /* **********************************************************²**/
@@ -110,6 +110,12 @@ public:
         std::shuffle(words_.begin(), words_.end(), g);
     }
     void start_new_game() {
+        if(guess_index_ > words_.size()){
+            std::random_device rd;
+            std::mt19937 g(rd());
+            std::shuffle(words_.begin(), words_.end(), g);
+            guess_index_ = 0;
+        }
         current_word_ = words_[guess_index_];
         guess_index_++;
         word_set_.clear();
