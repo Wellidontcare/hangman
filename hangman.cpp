@@ -6,7 +6,7 @@
 /*  By: Wellidontcare <djjorisdj@gmail.com>                    */
 /*                                                             */
 /*  created: 08/01/20 10:37:47 by Wellidontcare                */
-/*  updated: 08/01/20 12:02:02 by Joris Nonnast                */
+/*  updated: 08/01/20 12:11:20 by Joris Nonnast                */
 /*                                                             */
 /*                                                             */
 /* **********************************************************²**/
@@ -17,7 +17,7 @@
 #include <random>
 #include <string>
 
-const std::string stages_file_path = "../stages.lst";
+const std::string stages_file_path = "../hangman_stages.lst";
 const std::string words_file_path = "../words.lst";
 
 struct Point {
