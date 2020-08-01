@@ -6,7 +6,7 @@
 /*  By: Wellidontcare <djjorisdj@gmail.com>                    */
 /*                                                             */
 /*  created: 08/01/20 10:37:47 by Wellidontcare                */
-/*  updated: 08/01/20 11:56:01 by Joris Nonnast                */
+/*  updated: 08/01/20 12:02:02 by Joris Nonnast                */
 /*                                                             */
 /*                                                             */
 /* **********************************************************²**/
@@ -16,6 +16,9 @@
 #include <set>
 #include <random>
 #include <string>
+
+const std::string stages_file_path = "../stages.lst";
+const std::string words_file_path = "../words.lst";
 
 struct Point {
     unsigned x;
@@ -86,7 +89,7 @@ public:
         while(words_file >> file_input){
             words_.emplace_back(file_input);
         }
-        std::ifstream stages_file("../hangman_stages.lst");
+        std::ifstream stages_file(stages_file_path);
         std::vector<std::string> stage;
         unsigned line_counter = 7;
         while(std::getline(stages_file, file_input, '\n')){
@@ -195,7 +198,7 @@ private:
 
 
 int main(){
-    HangmanGame<50, 25> game("../words.lst");
+    HangmanGame<50, 25> game(words_file_path);
     game.start_new_game();
     return 0;
 }
