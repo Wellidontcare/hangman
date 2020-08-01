@@ -6,7 +6,7 @@
 /*  By: Wellidontcare <djjorisdj@gmail.com>                    */
 /*                                                             */
 /*  created: 08/01/20 10:37:47 by Wellidontcare                */
-/*  updated: 08/01/20 11:14:16 by Joris Nonnast                */
+/*  updated: 08/01/20 11:56:01 by Joris Nonnast                */
 /*                                                             */
 /*                                                             */
 /* **********************************************************²**/
@@ -15,6 +15,7 @@
 #include <iostream>
 #include <set>
 #include <random>
+#include <string>
 
 struct Point {
     unsigned x;
@@ -63,7 +64,7 @@ class HangmanGame{
     std::set<char> guessed_letters_;
     std::set<char> word_set_;
     std::set<char> word_set_tracker_;
-    unsigned int guess_index_ = 0;
+    unsigned guess_index_ = 0;
     std::string current_word_;
 
     bool game_over_ = false;
@@ -100,6 +101,7 @@ public:
                 stage.clear();
             }
         }
+        stages_.emplace_back(std::vector<std::string>{" ", " ", " ", " ", " ", " ", " ", " "});
         std::transform(words_.begin(), words_.end(), words_.begin(),
                        [](std::string& word){
             std::transform(word.begin(), word.end(), word.begin(), ::toupper); return word;
@@ -121,7 +123,7 @@ public:
         word_set_.clear();
         guessed_letters_.clear();
         canvas_.clear();
-        lives_ = 12;
+        lives_ = 11;
         std::copy(current_word_.begin(), current_word_.end(), std::inserter(word_set_, word_set_.begin()));
         word_set_tracker_ = word_set_;
         game_ends_ = false;
