@@ -6,7 +6,7 @@
 /*  By: Wellidontcare <djjorisdj@gmail.com>                    */
 /*                                                             */
 /*  created: 08/01/20 10:37:47 by Wellidontcare                */
-/*  updated: 08/01/20 12:11:20 by Joris Nonnast                */
+/*  updated: 09/10/20 09:48:56 by Joris Nonnast                */
 /*                                                             */
 /*                                                             */
 /* **********************************************************²**/
@@ -105,10 +105,10 @@ public:
             }
         }
         stages_.emplace_back(std::vector<std::string>{" ", " ", " ", " ", " ", " ", " ", " "});
-        std::transform(words_.begin(), words_.end(), words_.begin(),
-                       [](std::string& word){
-            std::transform(word.begin(), word.end(), word.begin(), ::toupper); return word;
-        });
+
+        for(auto& word : words_) {
+            std::transform(word.begin(), word.end(), word.begin(), toupper);
+        }
 
         std::random_device rd;
         std::mt19937 g(rd());
